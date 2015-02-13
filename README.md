@@ -1,13 +1,18 @@
 # MarketDataGenerator
 
-TODOs
------
-
-* feature determination
+* features
     - market depth
     - random data
-    - read from file
+    - supported communication protocols
+        fix
 
-* supported communication protocols
-    - fix
+* possible features
+    - zeroMQ communication protocol
+    - read data from file
 
+* configuration
+    - random data generation interval
+         fixed, random
+    - fix protocol configuration file
+    - symbols to be generated
+    - symbols base price used for random data generation
