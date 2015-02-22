@@ -9,6 +9,7 @@
 * possible features
     - zeroMQ communication protocol
     - read data from file
+    - read config from database using hibernate api
 
 * configuration
     - random data generation interval
