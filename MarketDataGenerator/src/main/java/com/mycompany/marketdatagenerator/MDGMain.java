@@ -1,21 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.marketdatagenerator;
 
-/**
- *
- * @author Administrator
- */
+import quickfix.DefaultMessageFactory;
+import quickfix.FileLogFactory;
+import quickfix.FileStoreFactory;
+import quickfix.LogFactory;
+import quickfix.MessageFactory;
+import quickfix.MessageStoreFactory;
+import quickfix.SessionSettings;
+import quickfix.SocketAcceptor;
+
+
+
 public class MDGMain {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        MDGServer mdgServer = new MDGServer();
+        try{
+            SessionSettings srvSettings = new SessionSettings("server.cfg");
+            MDGServer fixServer = new MDGServer();
+            MessageStoreFactory storeFactory = new FileStoreFactory(srvSettings);
+            LogFactory logFactory = new FileLogFactory(srvSettings);
+            MessageFactory messageFactory = new DefaultMessageFactory();
+            SocketAcceptor acceptor = new SocketAcceptor(fixServer, storeFactory, srvSettings, logFactory, messageFactory);
+            
+            acceptor.start();
+            
+            int i;
+            for(i=0;i<1000;i++){
+                Thread.sleep(5000);
+                fixServer.sendFixMessages();
+            }
+            
+            acceptor.stop();
+        }
+        catch(Exception ex){
+        }
     }
     
 }
