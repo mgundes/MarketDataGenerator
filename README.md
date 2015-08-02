@@ -17,3 +17,5 @@
     - fix protocol configuration file
     - symbols to be generated
     - symbols base price used for random data generation
+
+![Design Overview](/docs/MarketDataGenerator.png)
