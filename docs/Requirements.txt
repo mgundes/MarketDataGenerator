@@ -1,0 +1,27 @@
+
+- system must be configurable
+- system must be able to generate top prices
+- system must be able to generate prices with market depth
+- system must be able to generate random prices
+- system must be able to get prices from different source types
+- system must be able to deliver prices to different destination types
+- sustem must service more than one actors simultanously
+- sustem must service different actor types simultanously
+- system must have UI for monitoring
+- system must configurable via UI
+
+---------------------------
+
+- system must able to get application main configuration from file
+- system must able to get application process configuration from database
+- system must able to gather prices from file, from database, over FIX, and over ZeroMQ
+- system must able to deliver prices to file, to database, over FIX and over ZeroMQ
+- programming will be done with java
+- for UI javaFX will be use
+- MySQL will be used as DBd
+- hibernate will be used for DB transactions
+- configurable properties:
+    * symbols to be generated
+    * price generation time interval (miliseconds)
+    * source configurations
+    * destination configurations
